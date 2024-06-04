@@ -2,16 +2,21 @@ import './TextField.css'
 
 export const TextField = (props) => {
     
-    const placeholderText = `${props.placeholder}`
 
     const aoDigitado = (evento) => {
         props.aoAlterado(evento.target.value)
     }
 
     return(
-        <div className="text-camp">
+        <div className={`text-camp camp-${props.type}`}>
             <label>{props.label}</label>
-            <input value={props.valor} onChange={aoDigitado} required={props.obrigatorio} placeholder={placeholderText} />
+            <input 
+                type={props.type} 
+                value={props.valor} 
+                onChange={aoDigitado} 
+                required={props.obrigatorio} 
+                placeholder={`${props.placeholder}`} 
+            />
         </div>
     )
 }
